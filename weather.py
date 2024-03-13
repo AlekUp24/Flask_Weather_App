@@ -11,7 +11,7 @@ class WeatherData:
     main: str
     description: str
     icon: str
-    temperature: float
+    temperature: int
     pass
 
 def get_lat_lon(city_name, state_code, country_code, API_key):
@@ -28,7 +28,7 @@ def get_current_weather(lat, lon, API_key):
         main = resp.get('weather')[0].get('main'),
         description = resp.get('weather')[0].get('description'),
         icon = resp.get('weather')[0].get('icon'),
-        temperature = resp.get('main').get('temp')
+        temperature = int(resp.get('main').get('temp'))
     )
     return data
 
